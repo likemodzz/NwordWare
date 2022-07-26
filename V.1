@@ -434,8 +434,10 @@ for _,v in next, game.Players:GetPlayers() do
 		if v.UserId == m then 
 			if ModPopUp == false then
 				ModPopUp.Visible = true
+				TextLabel.Text = "Mod Detected: " + v.Name
 				wait(10)
 				ModPopUp.Visible = false
+				TextLabel.Text = "?"
 			end
 		end
 	end
@@ -447,8 +449,10 @@ game.Players.PlayerAdded:Connect(function(p)
 		if p.UserId == m then 
 			if ModPopUp == false then
 				ModPopUp.Visible = true
+				TextLabel.Text = "Mod Detected: " + p.Name
 				wait(10)
 				ModPopUp.Visible = false
+				TextLabel.Text = "?"
 			end
 		end
 	end
