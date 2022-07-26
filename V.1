@@ -1,0 +1,399 @@
+-- Instances:
+
+local Ui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Tab1 = Instance.new("Frame")
+local Creators = Instance.new("TextLabel")
+local naga0101 = Instance.new("TextLabel")
+local LikemodzzT = Instance.new("TextLabel")
+local TpFrame = Instance.new("Frame")
+local PlayerBox = Instance.new("TextBox")
+local HeightBox = Instance.new("TextBox")
+local TeleportText = Instance.new("TextLabel")
+local TpBut = Instance.new("TextButton")
+local PlayerChanger = Instance.new("Frame")
+local PlayerChangerText = Instance.new("TextLabel")
+local ForceBut = Instance.new("TextButton")
+local OriginalBut = Instance.new("TextButton")
+local PlayerList = Instance.new("Frame")
+local PlayerListText = Instance.new("TextLabel")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local dummyButton = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local Title_2 = Instance.new("TextLabel")
+local Title_3 = Instance.new("TextLabel")
+local Unhook = Instance.new("TextButton")
+
+--Properties:
+
+Ui.Name = "Ui"
+Ui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Ui.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = Ui
+Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.0130786896, 0, 0.289583892, 0)
+Main.Size = UDim2.new(0.177453905, 0, 0.41915521, 0)
+
+Tab1.Name = "Tab1"
+Tab1.Parent = Main
+Tab1.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Tab1.BorderColor3 = Color3.fromRGB(27, 27, 27)
+Tab1.BorderSizePixel = 2
+Tab1.Position = UDim2.new(0.0277612563, 0, 0.0446787737, 0)
+Tab1.Size = UDim2.new(0.944457591, 0, 0.93764919, 0)
+
+Creators.Name = "Creators"
+Creators.Parent = Tab1
+Creators.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Creators.BackgroundTransparency = 1.000
+Creators.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Creators.Position = UDim2.new(0.698439658, 0, 0.891410649, 0)
+Creators.Size = UDim2.new(0.300760686, 0, 0.0357369184, 0)
+Creators.Font = Enum.Font.RobotoMono
+Creators.Text = "Creators:"
+Creators.TextColor3 = Color3.fromRGB(73, 60, 255)
+Creators.TextScaled = true
+Creators.TextSize = 14.000
+Creators.TextWrapped = true
+
+naga0101.Name = "naga#0101"
+naga0101.Parent = Tab1
+naga0101.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+naga0101.BackgroundTransparency = 1.000
+naga0101.BorderColor3 = Color3.fromRGB(27, 42, 53)
+naga0101.Position = UDim2.new(0.698439658, 0, 0.960096836, 0)
+naga0101.Size = UDim2.new(0.300760686, 0, 0.0357369184, 0)
+naga0101.Font = Enum.Font.RobotoMono
+naga0101.Text = "naga#0101"
+naga0101.TextColor3 = Color3.fromRGB(255, 255, 255)
+naga0101.TextScaled = true
+naga0101.TextSize = 14.000
+naga0101.TextWrapped = true
+
+LikemodzzT.Name = "LikemodzzT"
+LikemodzzT.Parent = Tab1
+LikemodzzT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LikemodzzT.BackgroundTransparency = 1.000
+LikemodzzT.BorderColor3 = Color3.fromRGB(27, 42, 53)
+LikemodzzT.Position = UDim2.new(0.698439658, 0, 0.925753772, 0)
+LikemodzzT.Size = UDim2.new(0.300760686, 0, 0.0357369184, 0)
+LikemodzzT.Font = Enum.Font.RobotoMono
+LikemodzzT.Text = "Likemodzz#5806"
+LikemodzzT.TextColor3 = Color3.fromRGB(255, 255, 255)
+LikemodzzT.TextScaled = true
+LikemodzzT.TextSize = 14.000
+LikemodzzT.TextWrapped = true
+
+TpFrame.Name = "TpFrame"
+TpFrame.Parent = Tab1
+TpFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TpFrame.BorderColor3 = Color3.fromRGB(27, 27, 27)
+TpFrame.BorderSizePixel = 2
+TpFrame.Position = UDim2.new(0.0279771704, 0, 0.0542040095, 0)
+TpFrame.Size = UDim2.new(0.37642011, 0, 0.168032423, 0)
+
+PlayerBox.Name = "PlayerBox"
+PlayerBox.Parent = TpFrame
+PlayerBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+PlayerBox.BorderColor3 = Color3.fromRGB(27, 27, 27)
+PlayerBox.BorderSizePixel = 2
+PlayerBox.Position = UDim2.new(0.0461656712, 0, 0.0645161271, 0)
+PlayerBox.Size = UDim2.new(0.913199782, 0, 0.182795703, 0)
+PlayerBox.Font = Enum.Font.RobotoMono
+PlayerBox.PlaceholderColor3 = Color3.fromRGB(163, 163, 163)
+PlayerBox.PlaceholderText = "Playername"
+PlayerBox.Text = ""
+PlayerBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerBox.TextScaled = true
+PlayerBox.TextSize = 14.000
+PlayerBox.TextWrapped = true
+
+HeightBox.Name = "HeightBox"
+HeightBox.Parent = TpFrame
+HeightBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+HeightBox.BorderColor3 = Color3.fromRGB(27, 27, 27)
+HeightBox.BorderSizePixel = 2
+HeightBox.Position = UDim2.new(0.0461656712, 0, 0.333333313, 0)
+HeightBox.Size = UDim2.new(0.913199782, 0, 0.182795703, 0)
+HeightBox.Font = Enum.Font.RobotoMono
+HeightBox.PlaceholderColor3 = Color3.fromRGB(163, 163, 163)
+HeightBox.PlaceholderText = "Height"
+HeightBox.Text = ""
+HeightBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+HeightBox.TextScaled = true
+HeightBox.TextSize = 14.000
+HeightBox.TextWrapped = true
+
+TeleportText.Name = "TeleportText"
+TeleportText.Parent = TpFrame
+TeleportText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TeleportText.BackgroundTransparency = 1.000
+TeleportText.BorderColor3 = Color3.fromRGB(73, 60, 255)
+TeleportText.Position = UDim2.new(0, 0, -0.25, 0)
+TeleportText.Size = UDim2.new(0.509214282, 0, 0.20773904, 0)
+TeleportText.Font = Enum.Font.RobotoMono
+TeleportText.Text = "Teleport:"
+TeleportText.TextColor3 = Color3.fromRGB(0, 255, 247)
+TeleportText.TextScaled = true
+TeleportText.TextSize = 14.000
+TeleportText.TextWrapped = true
+
+TpBut.Name = "TpBut"
+TpBut.Parent = TpFrame
+TpBut.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TpBut.BorderColor3 = Color3.fromRGB(27, 27, 27)
+TpBut.BorderSizePixel = 2
+TpBut.Position = UDim2.new(0.0461656712, 0, 0.673578084, 0)
+TpBut.Size = UDim2.new(0.913199961, 0, 0.254203677, 0)
+TpBut.Font = Enum.Font.RobotoMono
+TpBut.Text = "TpToNiggers"
+TpBut.TextColor3 = Color3.fromRGB(147, 140, 137)
+TpBut.TextScaled = true
+TpBut.TextSize = 14.000
+TpBut.TextWrapped = true
+
+PlayerChanger.Name = "PlayerChanger"
+PlayerChanger.Parent = Tab1
+PlayerChanger.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+PlayerChanger.BorderColor3 = Color3.fromRGB(27, 27, 27)
+PlayerChanger.BorderSizePixel = 2
+PlayerChanger.Position = UDim2.new(0.0279771686, 0, 0.274633646, 0)
+PlayerChanger.Size = UDim2.new(0.37642011, 0, 0.168032423, 0)
+
+PlayerChangerText.Name = "PlayerChangerText"
+PlayerChangerText.Parent = PlayerChanger
+PlayerChangerText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerChangerText.BackgroundTransparency = 1.000
+PlayerChangerText.BorderColor3 = Color3.fromRGB(73, 60, 255)
+PlayerChangerText.Position = UDim2.new(0, 0, -0.25, 0)
+PlayerChangerText.Size = UDim2.new(0.786241353, 0, 0.20773904, 0)
+PlayerChangerText.Font = Enum.Font.RobotoMono
+PlayerChangerText.Text = "PlayerChanger:"
+PlayerChangerText.TextColor3 = Color3.fromRGB(0, 255, 247)
+PlayerChangerText.TextScaled = true
+PlayerChangerText.TextSize = 15.000
+PlayerChangerText.TextWrapped = true
+
+ForceBut.Name = "ForceBut"
+ForceBut.Parent = PlayerChanger
+ForceBut.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ForceBut.BorderColor3 = Color3.fromRGB(27, 27, 27)
+ForceBut.BorderSizePixel = 2
+ForceBut.Position = UDim2.new(0.0394089147, 0, 0.591397822, 0)
+ForceBut.Size = UDim2.new(0.913199961, 0, 0.336383998, 0)
+ForceBut.Font = Enum.Font.RobotoMono
+ForceBut.Text = "Forcefield"
+ForceBut.TextColor3 = Color3.fromRGB(147, 140, 137)
+ForceBut.TextScaled = true
+ForceBut.TextSize = 14.000
+ForceBut.TextWrapped = true
+
+OriginalBut.Name = "OriginalBut"
+OriginalBut.Parent = PlayerChanger
+OriginalBut.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+OriginalBut.BorderColor3 = Color3.fromRGB(27, 27, 27)
+OriginalBut.BorderSizePixel = 2
+OriginalBut.Position = UDim2.new(0.0394089147, 0, 0.071427539, 0)
+OriginalBut.Size = UDim2.new(0.913199961, 0, 0.329472542, 0)
+OriginalBut.Font = Enum.Font.RobotoMono
+OriginalBut.Text = "Orginal"
+OriginalBut.TextColor3 = Color3.fromRGB(147, 140, 137)
+OriginalBut.TextScaled = true
+OriginalBut.TextSize = 14.000
+OriginalBut.TextWrapped = true
+
+PlayerList.Name = "PlayerList"
+PlayerList.Parent = Tab1
+PlayerList.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+PlayerList.BorderColor3 = Color3.fromRGB(27, 27, 27)
+PlayerList.BorderSizePixel = 2
+PlayerList.Position = UDim2.new(0.549984992, 0, 0.0542040095, 0)
+PlayerList.Size = UDim2.new(0.37642011, 0, 0.388461977, 0)
+
+PlayerListText.Name = "PlayerListText"
+PlayerListText.Parent = PlayerList
+PlayerListText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerListText.BackgroundTransparency = 1.000
+PlayerListText.BorderColor3 = Color3.fromRGB(73, 60, 255)
+PlayerListText.Position = UDim2.new(-0.0806260929, 0, -0.108139575, 0)
+PlayerListText.Size = UDim2.new(0.790372014, 0, 0.0913468227, 0)
+PlayerListText.Font = Enum.Font.RobotoMono
+PlayerListText.Text = "Playerlist:"
+PlayerListText.TextColor3 = Color3.fromRGB(0, 255, 247)
+PlayerListText.TextScaled = true
+PlayerListText.TextSize = 14.000
+PlayerListText.TextWrapped = true
+
+ScrollingFrame.Parent = PlayerList
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ScrollingFrame.BorderColor3 = Color3.fromRGB(27, 27, 27)
+ScrollingFrame.BorderSizePixel = 2
+ScrollingFrame.Position = UDim2.new(-0.00806256291, 0, 0, 0)
+ScrollingFrame.Size = UDim2.new(1.00806236, 0, 1, 0)
+ScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+ScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+
+dummyButton.Name = "dummyButton"
+dummyButton.Parent = ScrollingFrame
+dummyButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+dummyButton.BorderColor3 = Color3.fromRGB(27, 27, 27)
+dummyButton.BorderSizePixel = 2
+dummyButton.Size = UDim2.new(0, 132, 0, 25)
+dummyButton.Font = Enum.Font.SourceSans
+dummyButton.Text = "?"
+dummyButton.TextColor3 = Color3.fromRGB(163, 163, 163)
+dummyButton.TextSize = 14.000
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.Position = UDim2.new(-0.0610000007, 0, -0.00499999989, 0)
+Title.Size = UDim2.new(0.32753554, 0, 0.0446788073, 0)
+Title.Font = Enum.Font.RobotoMono
+Title.Text = "nigger"
+Title.TextColor3 = Color3.fromRGB(0, 255, 247)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Title_2.Name = "Title"
+Title_2.Parent = Main
+Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.BackgroundTransparency = 1.000
+Title_2.BorderColor3 = Color3.fromRGB(73, 60, 255)
+Title_2.Position = UDim2.new(0.176135421, 0, -0.00499999989, 0)
+Title_2.Size = UDim2.new(0.0888364166, 0, 0.0446788073, 0)
+Title_2.Font = Enum.Font.RobotoMono
+Title_2.Text = "ware"
+Title_2.TextColor3 = Color3.fromRGB(73, 60, 255)
+Title_2.TextScaled = true
+Title_2.TextSize = 14.000
+Title_2.TextWrapped = true
+
+Title_3.Name = "Title"
+Title_3.Parent = Main
+Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.BackgroundTransparency = 1.000
+Title_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title_3.Position = UDim2.new(0.147812039, 0, -0.00499999989, 0)
+Title_3.Size = UDim2.new(0.32753554, 0, 0.0446788073, 0)
+Title_3.Font = Enum.Font.RobotoMono
+Title_3.Text = ".xyz"
+Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.TextScaled = true
+Title_3.TextSize = 14.000
+Title_3.TextWrapped = true
+
+Unhook.Name = "Unhook"
+Unhook.Parent = Main
+Unhook.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Unhook.BorderColor3 = Color3.fromRGB(27, 27, 27)
+Unhook.BorderSizePixel = 2
+Unhook.Position = UDim2.new(0.0538216271, 0, 0.916625023, 0)
+Unhook.Size = UDim2.new(0.200611994, 0, 0.0486348942, 0)
+Unhook.Font = Enum.Font.RobotoMono
+Unhook.Text = "Unhook"
+Unhook.TextColor3 = Color3.fromRGB(147, 140, 137)
+Unhook.TextScaled = true
+Unhook.TextSize = 14.000
+Unhook.TextWrapped = true
+
+local UIS = game:GetService("UserInputService")
+
+local Visible = true
+
+--Hiding Gui
+UIS.InputBegan:Connect(function(x)
+	if Visible and x.KeyCode == Enum.KeyCode.RightControl then
+		Visible = false
+		Main.Visible = false
+
+	elseif Visible == false and x.KeyCode == Enum.KeyCode.RightControl then
+		Visible = true
+		Main.Visible = true
+	end
+end)
+
+
+--TpFeature
+TpBut.MouseButton1Down:Connect(function()
+	local CFrameEnd = game.Players[PlayerBox.Text].Character.HumanoidRootPart.CFrame * CFrame.new(0,HeightBox.Text,0)
+
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1,Enum.EasingStyle.Linear), {CFrame = CFrameEnd}):Play()
+	wait(.1)
+	tween.Stop()
+end)
+
+
+--ForceFieldMaterial Character
+ForceBut.MouseButton1Down:Connect(function()
+	local Char = game.Players.LocalPlayer.Character
+
+	for _,v in pairs(Char:GetChildren()) do
+		if(v:IsA("BasePart") and v.Material ~= "ForceField" )then
+			v.Material = "ForceField"
+
+		end
+	end
+end)
+
+--OrgMaterial Character
+OriginalBut.MouseButton1Down:Connect(function()
+	local Char = game.Players.LocalPlayer.Character
+
+	for _,v in pairs(Char:GetChildren()) do
+		if(v:IsA("BasePart") and v.Material ~= "ForceField" )then
+			v.Material = "Plastic"
+
+		end
+	end
+end)
+
+Unhook.MouseButton1Down:Connect(function()
+	Main:Destroy()
+end)
+
+--
+local Plr = game:GetService("Players") 
+
+local dummyButton2 = ScrollingFrame.dummyButton:Clone() 
+ScrollingFrame.dummyButton:Destroy() 
+
+function update() 
+
+	ScrollingFrame:ClearAllChildren() 
+
+	local CurrentPlayer = 0 
+
+	for i,v in pairs(Plr:GetPlayers()) do 
+
+		CurrentPlayer = CurrentPlayer + 1 
+
+		local newButton = dummyButton2:Clone() 
+
+		newButton.Position = UDim2.new( 0, 0, 0, newButton.Size.Y.Offset * ( CurrentPlayer - 1 ) ) 
+		newButton.Text = v.Name 
+
+		newButton.MouseButton1Down:connect(function()
+			local CFrameEnd = game.Players[v.Name].Character.HumanoidRootPart.CFrame * CFrame.new(0,HeightBox.Text,0)
+
+			local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1,Enum.EasingStyle.Linear), {CFrame = CFrameEnd}):Play()
+		end)
+
+		newButton.Parent = ScrollingFrame
+
+	end
+
+end
+
+Plr.PlayerAdded:connect(update) 
+Plr.PlayerRemoving:connect(update) 
+
+update()
