@@ -239,6 +239,7 @@ ScrollingFrame.Position = UDim2.new(-0.00806256291, 0, 0, 0)
 ScrollingFrame.Size = UDim2.new(1.00806236, 0, 1, 0)
 ScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 ScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(0,0,0)
 
 dummyButton.Name = "dummyButton"
 dummyButton.Parent = ScrollingFrame
@@ -423,19 +424,15 @@ Plr.PlayerRemoving:connect(update)
 update()
 
 --Mod Detector
+local StarterGui = game:GetService("StarterGui")
 
-local Mods = {88465633,56883177,163719713,13645838,57655443,63245130,10717044,43547233,9610709,28605037,18880731,28605037,859474,1631181,4410600,22303673,3645709,75823163,2548840,281519,281519,74185893}
+local Mods = {88465633,56883177,163719713,13645838,57655443,63245130,10717044,43547233,9610709,28605037,18880731,28605037,859474,1631181,4410600,22303673,3645709,75823163,2548840,281519}
 --if a mod is already in game
 for _,v in next, game.Players:GetPlayers() do
 	for _,m in next,Mods do
 		if v.UserId == m then 
-			if ModPopUp == false then
-				ModPopUp.Visible = true
-				TextLabel.Text = "Mod Detected: " + v.Name
-				wait(10)
-				ModPopUp.Visible = false
-				TextLabel.Text = "?"
-			end
+			StarterGui:SetCore("SendNotification", { Title = "Notification", Text = v.Name,	Duration = 12})
+			wait(12)
 		end
 	end
 end
@@ -444,13 +441,8 @@ end
 game.Players.PlayerAdded:Connect(function(p)
 	for _,m in next,Mods do
 		if p.UserId == m then 
-			if ModPopUp == false then
-				ModPopUp.Visible = true
-				TextLabel.Text = "Mod Detected: " + p.Name
-				wait(10)
-				ModPopUp.Visible = false
-				TextLabel.Text = "?"
-			end
+			StarterGui:SetCore("SendNotification", { Title = "Mod Detected", Text = p.Name,	Duration = 8})
+			wait(8)
 		end
 	end
 end)
