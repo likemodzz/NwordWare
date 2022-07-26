@@ -1,3 +1,6 @@
+-- Gui to Lua
+-- Version: 3.2
+
 -- Instances:
 
 local Ui = Instance.new("ScreenGui")
@@ -23,6 +26,8 @@ local Title = Instance.new("TextLabel")
 local Title_2 = Instance.new("TextLabel")
 local Title_3 = Instance.new("TextLabel")
 local Unhook = Instance.new("TextButton")
+local ModPopUp = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
 
 --Properties:
 
@@ -107,7 +112,7 @@ PlayerBox.Font = Enum.Font.RobotoMono
 PlayerBox.PlaceholderColor3 = Color3.fromRGB(163, 163, 163)
 PlayerBox.PlaceholderText = "Playername"
 PlayerBox.Text = ""
-PlayerBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerBox.TextColor3 = Color3.fromRGB(73, 60, 255)
 PlayerBox.TextScaled = true
 PlayerBox.TextSize = 14.000
 PlayerBox.TextWrapped = true
@@ -237,7 +242,6 @@ ScrollingFrame.Position = UDim2.new(-0.00806256291, 0, 0, 0)
 ScrollingFrame.Size = UDim2.new(1.00806236, 0, 1, 0)
 ScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 ScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(0,0,0)
 
 dummyButton.Name = "dummyButton"
 dummyButton.Parent = ScrollingFrame
@@ -306,11 +310,33 @@ Unhook.TextScaled = true
 Unhook.TextSize = 14.000
 Unhook.TextWrapped = true
 
+ModPopUp.Name = "ModPopUp"
+ModPopUp.Parent = Ui
+ModPopUp.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ModPopUp.BorderColor3 = Color3.fromRGB(27, 27, 27)
+ModPopUp.Position = UDim2.new(-0.000378290657, 0, 0.913939714, 0)
+ModPopUp.Size = UDim2.new(0, 203, 0, 35)
+ModPopUp.Visible = false
+
+TextLabel.Parent = ModPopUp
+TextLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextLabel.BorderColor3 = Color3.fromRGB(27, 27, 27)
+TextLabel.BorderSizePixel = 2
+TextLabel.Position = UDim2.new(0, 0, 0.200000003, 0)
+TextLabel.Size = UDim2.new(0, 197, 0, 22)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "?"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+--Hiding Gui
 local UIS = game:GetService("UserInputService")
 
 local Visible = true
 
---Hiding Gui
+
 UIS.InputBegan:Connect(function(x)
 	if Visible and x.KeyCode == Enum.KeyCode.RightControl then
 		Visible = false
@@ -361,7 +387,7 @@ Unhook.MouseButton1Down:Connect(function()
 	Main:Destroy()
 end)
 
---
+--PlayerList
 local Plr = game:GetService("Players") 
 
 local dummyButton2 = ScrollingFrame.dummyButton:Clone() 
@@ -398,3 +424,32 @@ Plr.PlayerAdded:connect(update)
 Plr.PlayerRemoving:connect(update) 
 
 update()
+
+--Mod Detector
+
+local Mods = {88465633,56883177,163719713,13645838,57655443,63245130,10717044,43547233,9610709,28605037,18880731,28605037,859474,1631181,4410600,22303673,3645709,75823163,2548840,281519,281519}
+--if a mod is already in game
+for _,v in next, game.Players:GetPlayers() do
+	for _,m in next,Mods do
+		if v.UserId == m then 
+			if ModPopUp == false then
+				ModPopUp.Visible = true
+				wait(10)
+				ModPopUp.Visible = false
+			end
+		end
+	end
+end
+
+--if mod joins game after exectuting
+game.Players.PlayerAdded:Connect(function(p)
+	for _,m in next,Mods do
+		if p.UserId == m then 
+			if ModPopUp == false then
+				ModPopUp.Visible = true
+				wait(10)
+				ModPopUp.Visible = false
+			end
+		end
+	end
+end)
