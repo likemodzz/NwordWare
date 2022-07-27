@@ -1,5 +1,4 @@
 -- Instances:
-
 local Ui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local Tab1 = Instance.new("Frame")
@@ -13,16 +12,16 @@ local TeleportText = Instance.new("TextLabel")
 local TpBut = Instance.new("TextButton")
 local PlayerChanger = Instance.new("Frame")
 local PlayerChangerText = Instance.new("TextLabel")
-local ForceBut = Instance.new("TextButton")
-local OriginalBut = Instance.new("TextButton")
+local ForcefieldCheckBox = Instance.new("TextButton")
+local PlayerChangerText_2 = Instance.new("TextLabel")
+local TpBut_2 = Instance.new("TextButton")
 local PlayerList = Instance.new("Frame")
 local PlayerListText = Instance.new("TextLabel")
 local ScrollingFrame = Instance.new("ScrollingFrame")
 local dummyButton = Instance.new("TextButton")
-local Title = Instance.new("TextLabel")
-local Title_2 = Instance.new("TextLabel")
-local Title_3 = Instance.new("TextLabel")
 local Unhook = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
 
 --Properties:
 
@@ -42,7 +41,6 @@ Tab1.Name = "Tab1"
 Tab1.Parent = Main
 Tab1.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 Tab1.BorderColor3 = Color3.fromRGB(27, 27, 27)
-Tab1.BorderSizePixel = 2
 Tab1.Position = UDim2.new(0.0277612563, 0, 0.0446787737, 0)
 Tab1.Size = UDim2.new(0.944457591, 0, 0.93764919, 0)
 
@@ -55,7 +53,7 @@ Creators.Position = UDim2.new(0.698439658, 0, 0.891410649, 0)
 Creators.Size = UDim2.new(0.300760686, 0, 0.0357369184, 0)
 Creators.Font = Enum.Font.RobotoMono
 Creators.Text = "Creators:"
-Creators.TextColor3 = Color3.fromRGB(73, 60, 255)
+Creators.TextColor3 = Color3.fromRGB(255, 0, 4)
 Creators.TextScaled = true
 Creators.TextSize = 14.000
 Creators.TextWrapped = true
@@ -133,11 +131,11 @@ TeleportText.Parent = TpFrame
 TeleportText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TeleportText.BackgroundTransparency = 1.000
 TeleportText.BorderColor3 = Color3.fromRGB(73, 60, 255)
-TeleportText.Position = UDim2.new(0, 0, -0.25, 0)
-TeleportText.Size = UDim2.new(0.509214282, 0, 0.20773904, 0)
+TeleportText.Position = UDim2.new(-0.00090411678, 0, -0.249999851, 0)
+TeleportText.Size = UDim2.new(0.46980539, 0, 0.207739025, 0)
 TeleportText.Font = Enum.Font.RobotoMono
 TeleportText.Text = "Teleport:"
-TeleportText.TextColor3 = Color3.fromRGB(0, 255, 247)
+TeleportText.TextColor3 = Color3.fromRGB(255, 0, 4)
 TeleportText.TextScaled = true
 TeleportText.TextSize = 14.000
 TeleportText.TextWrapped = true
@@ -169,42 +167,56 @@ PlayerChangerText.Parent = PlayerChanger
 PlayerChangerText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 PlayerChangerText.BackgroundTransparency = 1.000
 PlayerChangerText.BorderColor3 = Color3.fromRGB(73, 60, 255)
-PlayerChangerText.Position = UDim2.new(0, 0, -0.25, 0)
-PlayerChangerText.Size = UDim2.new(0.786241353, 0, 0.20773904, 0)
+PlayerChangerText.Position = UDim2.new(-0.00806260947, 0, -0.235096022, 0)
+PlayerChangerText.Size = UDim2.new(0.721740425, 0, 0.235096082, 0)
 PlayerChangerText.Font = Enum.Font.RobotoMono
 PlayerChangerText.Text = "PlayerChanger:"
-PlayerChangerText.TextColor3 = Color3.fromRGB(0, 255, 247)
+PlayerChangerText.TextColor3 = Color3.fromRGB(255, 0, 4)
 PlayerChangerText.TextScaled = true
 PlayerChangerText.TextSize = 15.000
 PlayerChangerText.TextWrapped = true
 
-ForceBut.Name = "ForceBut"
-ForceBut.Parent = PlayerChanger
-ForceBut.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-ForceBut.BorderColor3 = Color3.fromRGB(27, 27, 27)
-ForceBut.BorderSizePixel = 2
-ForceBut.Position = UDim2.new(0.0394089147, 0, 0.591397822, 0)
-ForceBut.Size = UDim2.new(0.913199961, 0, 0.336383998, 0)
-ForceBut.Font = Enum.Font.RobotoMono
-ForceBut.Text = "Forcefield"
-ForceBut.TextColor3 = Color3.fromRGB(147, 140, 137)
-ForceBut.TextScaled = true
-ForceBut.TextSize = 14.000
-ForceBut.TextWrapped = true
+ForcefieldCheckBox.Name = "ForcefieldCheckBox"
+ForcefieldCheckBox.Parent = PlayerChanger
+ForcefieldCheckBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ForcefieldCheckBox.BorderColor3 = Color3.fromRGB(27, 27, 27)
+ForcefieldCheckBox.BorderSizePixel = 2
+ForcefieldCheckBox.Position = UDim2.new(0.0394089296, 0, 0.0995715857, 0)
+ForcefieldCheckBox.Size = UDim2.new(0.130885571, 0, 0.217153385, 0)
+ForcefieldCheckBox.Font = Enum.Font.RobotoMono
+ForcefieldCheckBox.Text = ""
+ForcefieldCheckBox.TextColor3 = Color3.fromRGB(66, 66, 66)
+ForcefieldCheckBox.TextScaled = true
+ForcefieldCheckBox.TextSize = 14.000
+ForcefieldCheckBox.TextWrapped = true
 
-OriginalBut.Name = "OriginalBut"
-OriginalBut.Parent = PlayerChanger
-OriginalBut.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-OriginalBut.BorderColor3 = Color3.fromRGB(27, 27, 27)
-OriginalBut.BorderSizePixel = 2
-OriginalBut.Position = UDim2.new(0.0394089147, 0, 0.071427539, 0)
-OriginalBut.Size = UDim2.new(0.913199961, 0, 0.329472542, 0)
-OriginalBut.Font = Enum.Font.RobotoMono
-OriginalBut.Text = "Orginal"
-OriginalBut.TextColor3 = Color3.fromRGB(147, 140, 137)
-OriginalBut.TextScaled = true
-OriginalBut.TextSize = 14.000
-OriginalBut.TextWrapped = true
+PlayerChangerText_2.Name = "PlayerChangerText"
+PlayerChangerText_2.Parent = ForcefieldCheckBox
+PlayerChangerText_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerChangerText_2.BackgroundTransparency = 1.000
+PlayerChangerText_2.BorderColor3 = Color3.fromRGB(73, 60, 255)
+PlayerChangerText_2.Position = UDim2.new(1.16234553, 0, -0.0291973986, 0)
+PlayerChangerText_2.Size = UDim2.new(3.98924518, 0, 1.16646361, 0)
+PlayerChangerText_2.Font = Enum.Font.RobotoMono
+PlayerChangerText_2.Text = "Forcefield"
+PlayerChangerText_2.TextColor3 = Color3.fromRGB(147, 140, 137)
+PlayerChangerText_2.TextScaled = true
+PlayerChangerText_2.TextSize = 10.000
+PlayerChangerText_2.TextWrapped = true
+
+TpBut_2.Name = "TpBut"
+TpBut_2.Parent = PlayerChanger
+TpBut_2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TpBut_2.BorderColor3 = Color3.fromRGB(27, 27, 27)
+TpBut_2.BorderSizePixel = 2
+TpBut_2.Position = UDim2.new(0.0461657159, 0, 0.509635746, 0)
+TpBut_2.Size = UDim2.new(0.91320014, 0, 0.388338029, 0)
+TpBut_2.Font = Enum.Font.RobotoMono
+TpBut_2.Text = "ClothingChanger"
+TpBut_2.TextColor3 = Color3.fromRGB(147, 140, 137)
+TpBut_2.TextScaled = true
+TpBut_2.TextSize = 14.000
+TpBut_2.TextWrapped = true
 
 PlayerList.Name = "PlayerList"
 PlayerList.Parent = Tab1
@@ -219,11 +231,11 @@ PlayerListText.Parent = PlayerList
 PlayerListText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 PlayerListText.BackgroundTransparency = 1.000
 PlayerListText.BorderColor3 = Color3.fromRGB(73, 60, 255)
-PlayerListText.Position = UDim2.new(-0.0806260929, 0, -0.108139575, 0)
+PlayerListText.Position = UDim2.new(-0.0886887014, 0, -0.108139575, 0)
 PlayerListText.Size = UDim2.new(0.790372014, 0, 0.0913468227, 0)
 PlayerListText.Font = Enum.Font.RobotoMono
 PlayerListText.Text = "Playerlist:"
-PlayerListText.TextColor3 = Color3.fromRGB(0, 255, 247)
+PlayerListText.TextColor3 = Color3.fromRGB(255, 0, 4)
 PlayerListText.TextScaled = true
 PlayerListText.TextSize = 14.000
 PlayerListText.TextWrapped = true
@@ -237,7 +249,7 @@ ScrollingFrame.Position = UDim2.new(-0.00806256291, 0, 0, 0)
 ScrollingFrame.Size = UDim2.new(1.00806236, 0, 1, 0)
 ScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 ScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(0,0,0)
+ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
 
 dummyButton.Name = "dummyButton"
 dummyButton.Parent = ScrollingFrame
@@ -250,61 +262,40 @@ dummyButton.Text = "?"
 dummyButton.TextColor3 = Color3.fromRGB(163, 163, 163)
 dummyButton.TextSize = 14.000
 
-Title.Name = "Title"
-Title.Parent = Main
-Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Title.BackgroundTransparency = 1.000
-Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
-Title.Position = UDim2.new(-0.0610000007, 0, -0.00499999989, 0)
-Title.Size = UDim2.new(0.32753554, 0, 0.0446788073, 0)
-Title.Font = Enum.Font.RobotoMono
-Title.Text = "nigger"
-Title.TextColor3 = Color3.fromRGB(0, 255, 247)
-Title.TextScaled = true
-Title.TextSize = 14.000
-Title.TextWrapped = true
-
-Title_2.Name = "Title"
-Title_2.Parent = Main
-Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Title_2.BackgroundTransparency = 1.000
-Title_2.BorderColor3 = Color3.fromRGB(73, 60, 255)
-Title_2.Position = UDim2.new(0.176135421, 0, -0.00499999989, 0)
-Title_2.Size = UDim2.new(0.0888364166, 0, 0.0446788073, 0)
-Title_2.Font = Enum.Font.RobotoMono
-Title_2.Text = "ware"
-Title_2.TextColor3 = Color3.fromRGB(73, 60, 255)
-Title_2.TextScaled = true
-Title_2.TextSize = 14.000
-Title_2.TextWrapped = true
-
-Title_3.Name = "Title"
-Title_3.Parent = Main
-Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Title_3.BackgroundTransparency = 1.000
-Title_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
-Title_3.Position = UDim2.new(0.147812039, 0, -0.00499999989, 0)
-Title_3.Size = UDim2.new(0.32753554, 0, 0.0446788073, 0)
-Title_3.Font = Enum.Font.RobotoMono
-Title_3.Text = ".xyz"
-Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title_3.TextScaled = true
-Title_3.TextSize = 14.000
-Title_3.TextWrapped = true
-
 Unhook.Name = "Unhook"
 Unhook.Parent = Main
 Unhook.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 Unhook.BorderColor3 = Color3.fromRGB(27, 27, 27)
 Unhook.BorderSizePixel = 2
-Unhook.Position = UDim2.new(0.0538216271, 0, 0.916625023, 0)
-Unhook.Size = UDim2.new(0.200611994, 0, 0.0486348942, 0)
+Unhook.Position = UDim2.new(0.0538216196, 0, 0.916625142, 0)
+Unhook.Size = UDim2.new(0.35587576, 0, 0.0486348942, 0)
 Unhook.Font = Enum.Font.RobotoMono
 Unhook.Text = "Unhook"
 Unhook.TextColor3 = Color3.fromRGB(147, 140, 137)
 Unhook.TextScaled = true
 Unhook.TextSize = 14.000
 Unhook.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.Position = UDim2.new(0.0249908306, 0, -0.00499999989, 0)
+Title.Size = UDim2.new(0.32753554, 0, 0.0446788073, 0)
+Title.Font = Enum.Font.RobotoMono
+Title.Text = "niggerware.xyz"
+Title.TextColor3 = Color3.fromRGB(255, 0, 4)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(0.51, Color3.fromRGB(255, 0, 4)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(98, 0, 1))}
+UIGradient.Parent = Title
+
+--Draggable Gui
+Main.Active = true
+Main.Draggable = true
 
 --Hiding Gui
 local UIS = game:GetService("UserInputService")
@@ -333,28 +324,40 @@ TpBut.MouseButton1Down:Connect(function()
 	tween.Stop()
 end)
 
+--OrgMaterials
+local OrgColor = ""
+local OrgMaterial = ""
 
---ForceFieldMaterial Character
-ForceBut.MouseButton1Down:Connect(function()
+--MaterialBool
+local MatBool = false
+
+--Material Changer
+ForcefieldCheckBox.MouseButton1Down:Connect(function()
 	local Char = game.Players.LocalPlayer.Character
+	if MatBool == false then
+		for _,v in pairs(Char:GetChildren()) do
+			if v:IsA("BasePart") then
 
-	for _,v in pairs(Char:GetChildren()) do
-		if(v:IsA("BasePart") and v.Material ~= "ForceField" )then
-			v.Material = "ForceField"
+				OrgColor = v.BrickColor
+				OrgMaterial = v.Material
 
+				v.BrickColor = BrickColor.new("Bright red")
+				v.Material = "ForceField"
+				ForcefieldCheckBox.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+			end
 		end
-	end
-end)
+		MatBool = true
 
---OrgMaterial Character
-OriginalBut.MouseButton1Down:Connect(function()
-	local Char = game.Players.LocalPlayer.Character
+	elseif MatBool == true then
+		for _,v in pairs(Char:GetChildren()) do
+			if v:IsA("BasePart") then
+				ForcefieldCheckBox.BackgroundColor3 = Color3.fromHex("#282828")
 
-	for _,v in pairs(Char:GetChildren()) do
-		if(v:IsA("BasePart") and v.Material ~= "ForceField" )then
-			v.Material = "Plastic"
-
+				v.BrickColor =  OrgColor
+				v.Material = OrgMaterial
+			end
 		end
+		MatBool = false
 	end
 end)
 
