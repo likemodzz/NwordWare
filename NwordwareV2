@@ -28,10 +28,34 @@ Material:AddToggle('ForceFieldToggle', {
 	Tooltip = 'Makes Player Model ForceField', -- Information shown when you hover over the toggle
 })
 
+--MaterialBools
+local OrgColor = ""
+local OrgMaterial = ""
+
+Toggles.ForceFieldToggle:OnChanged(function()
+	local Char = game.Players.LocalPlayer.Character
+	if Toggles.ForceFieldToggle.Value == true then
+		for _,v in pairs(Char:GetChildren()) do
+			if v:IsA("BasePart") then
+
+				OrgColor = v.BrickColor
+				OrgMaterial = v.Material
+				
+				v.Material = "ForceField"
+			end
+		end
+	elseif Toggles.ForceFieldToggle.Value == false then
+		for _,v in pairs(Char:GetChildren()) do
+			if v:IsA("BasePart") then
+
+				v.Material = "Plastic"
+			end
+		end
+	end 
+end)
+
 --TP Tab
 local TeleportGroup = Tabs.TeleportTab:AddLeftGroupbox("Teleport")
-local PlayerNameString = ""
-local HeightString = ""
 
 TeleportGroup:AddInput('PlayerName', {
 	Default = '',
@@ -42,8 +66,6 @@ TeleportGroup:AddInput('PlayerName', {
 
 	Placeholder = '', -- placeholder text when the box is empty
 })
-
-
 TeleportGroup:AddInput('Height', {
 	Default = '',
 	Numeric = false, -- true / false, only allows numbers
@@ -51,10 +73,7 @@ TeleportGroup:AddInput('Height', {
 	Text = 'Height',
 	Tooltip = 'Input Height', -- Information shown when you hover over the textbox
 	Placeholder = '', -- placeholder text when the box is empty
-	MaxLength = '4' -- MaxLength is also an option which is the max length of the text
 })
-
-
 TeleportGroup:AddDropdown('PlayersList', {
 	Values = { 'none' },
 	Default = 1, -- number index of the value / string
@@ -63,17 +82,24 @@ TeleportGroup:AddDropdown('PlayersList', {
 	Text = 'PlayersList',
 	Tooltip = 'Select A Player To Teleport To',
 })
-
 local TeleportButton = TeleportGroup:AddButton('Button', function()
-	local CFrameEnd = game.Players[options.PlayerName.Value].Character.HumanoidRootPart.CFrame * CFrame.new(0,options.Height.Value,0)
+	local CFrameEnd = game.Players[Options.PlayerName.Value].Character.HumanoidRootPart.CFrame * CFrame.new(0,Options.Height.Value,0)
 
 	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1,Enum.EasingStyle.Linear), {CFrame = CFrameEnd}):Play()
-	wait(.1)
-	tween.Stop()
 end)
 
 --Settings Tab
 local MenuOptions = Tabs.SettingsTab:AddLeftGroupbox('Menu Options')
 
+MenuOptions:AddLabel('Open/Close Bind'):AddKeyPicker('MenuKeybind', { Default = 'RightControl', NoUI = true, Text = 'Menu keybind' }) 
+MenuOptions:AddButton('Copy Discord Link', function()
+	setclipboard("x")
+	toclipboard("x")
+end)
 MenuOptions:AddButton('Unload', function() Library:Unload() end)
-MenuOptions:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
+
+Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+
+ThemeManager:SetLibrary(Library)
+ThemeManager:SetFolder('NwordWare')
+ThemeManager:ApplyToTab(Tabs.SettingsTab)
