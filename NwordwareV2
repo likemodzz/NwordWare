@@ -1,0 +1,79 @@
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+	Title = 'Niggerware - Creators: Likemodzz#5806 - naga#0101',
+	Center = true, 
+	AutoShow = true,
+})
+
+local Tabs = {
+
+	["PlayerOptionsTab"] = Window:AddTab('Player'), 
+	['TeleportTab'] = Window:AddTab('Teleport'),
+	['EspTab'] = Window:AddTab('Esp'),
+	['AimbotTab'] = Window:AddTab('Aimbot'),
+	['SettingsTab'] = Window:AddTab('Settings'),
+}
+
+--PlrOptionsTab
+local Material = Tabs.PlayerOptionsTab:AddLeftGroupbox("Material")
+
+Material:AddToggle('ForceFieldToggle', {
+	Text = 'ForceField',
+	Default = false, -- Default value (true / false)
+	Tooltip = 'Makes Player Model ForceField', -- Information shown when you hover over the toggle
+})
+
+--TP Tab
+local TeleportGroup = Tabs.TeleportTab:AddLeftGroupbox("Teleport")
+local PlayerNameString = ""
+local HeightString = ""
+
+TeleportGroup:AddInput('PlayerName', {
+	Default = '',
+	Numeric = false, -- true / false, only allows numbers
+	Finished = false, -- true / false, only calls callback when you press enter
+	Text = 'PlayerName',
+	Tooltip = 'Input Player Name To Teleport Too', -- Information shown when you hover over the textbox
+
+	Placeholder = '', -- placeholder text when the box is empty
+})
+
+
+TeleportGroup:AddInput('Height', {
+	Default = '',
+	Numeric = false, -- true / false, only allows numbers
+	Finished = false, -- true / false, only calls callback when you press enter
+	Text = 'Height',
+	Tooltip = 'Input Height', -- Information shown when you hover over the textbox
+	Placeholder = '', -- placeholder text when the box is empty
+	MaxLength = '4' -- MaxLength is also an option which is the max length of the text
+})
+
+
+TeleportGroup:AddDropdown('PlayersList', {
+	Values = { 'none' },
+	Default = 1, -- number index of the value / string
+	Multi = false, -- true / false, allows multiple choices to be selected
+
+	Text = 'PlayersList',
+	Tooltip = 'Select A Player To Teleport To',
+})
+
+local TeleportButton = TeleportGroup:AddButton('Button', function()
+	local CFrameEnd = game.Players[options.PlayerName.Value].Character.HumanoidRootPart.CFrame * CFrame.new(0,options.Height.Value,0)
+
+	local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.1,Enum.EasingStyle.Linear), {CFrame = CFrameEnd}):Play()
+	wait(.1)
+	tween.Stop()
+end)
+
+--Settings Tab
+local MenuOptions = Tabs.SettingsTab:AddLeftGroupbox('Menu Options')
+
+MenuOptions:AddButton('Unload', function() Library:Unload() end)
+MenuOptions:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
