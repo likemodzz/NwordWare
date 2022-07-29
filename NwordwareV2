@@ -28,10 +28,6 @@ Material:AddToggle('ForceFieldToggle', {
 	Tooltip = 'Makes Player Model ForceField', -- Information shown when you hover over the toggle
 })
 
-Material:AddLabel('ForceFieldColor'):AddColorPicker('ColorPicker', {
- 
-})
-
 --MaterialBools
 local OrgColor = ""
 local OrgMaterial = ""
@@ -44,6 +40,9 @@ Toggles.ForceFieldToggle:OnChanged(function()
 
 				OrgColor = v.BrickColor
 				OrgMaterial = v.Material
+
+				
+				v.Color = Color3.fromRGB(0, 255, 238)
 
 				v.Material = "ForceField"
 			end
